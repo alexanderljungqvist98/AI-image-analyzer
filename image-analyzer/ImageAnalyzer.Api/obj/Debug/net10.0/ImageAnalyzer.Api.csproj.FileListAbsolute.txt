@@ -32,3 +32,8 @@ C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\Ima
 C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\obj\Debug\net10.0\ImageAnalyzer.Api.pdb
 C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\obj\Debug\net10.0\ImageAnalyzer.Api.genruntimeconfig.cache
 C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\obj\Debug\net10.0\ref\ImageAnalyzer.Api.dll
+C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\bin\Debug\net10.0\Azure.AI.Vision.ImageAnalysis.dll
+C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\bin\Debug\net10.0\Azure.Core.dll
+C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\bin\Debug\net10.0\System.ClientModel.dll
+C:\Users\Dakom\Documents\GitHub\net25-analysis-ai-Blackprowhe\image-analyzer\ImageAnalyzer.Api\bin\Debug\net10.0\System.Memory.Data.dll

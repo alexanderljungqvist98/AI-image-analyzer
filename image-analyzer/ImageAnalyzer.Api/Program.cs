@@ -1,5 +1,6 @@
 using Azure;
 using Azure.AI.Vision.ImageAnalysis;
+using ImageAnalyzer.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddSingleton(new ImageAnalysisClient(
     new Uri(endpoint),
     new Azure.AzureKeyCredential(key)));
 
+    builder.Services.AddScoped<VisionService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -25,15 +28,15 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
 
-app.MapPost("/api/image/analyze", async (IFormFile image) =>
+
+app.MapPost("/api/image/analyze", async (IFormFile image, 
+VisionService visionService) =>
 {
-    return Results.Ok(new
-    {
-        FileName = image.FileName,
-        ContentType = image.ContentType
-    });
-});
+    await using var stream = image.OpenReadStream();
+    var result = await visionService.AnalyzeImageAsync(stream);
+    return Results.Ok(result);
+})
+.DisableAntiforgery();
 
 app.Run();

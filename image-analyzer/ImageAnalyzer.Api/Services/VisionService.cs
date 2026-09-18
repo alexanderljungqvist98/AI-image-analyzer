@@ -17,9 +17,8 @@ namespace ImageAnalyzer.Api.Services
             var imageData = BinaryData.FromStream(imageStream);
 
             var visualFeatures =
-                VisualFeatures.Tags |
-                VisualFeatures.Caption |
-                VisualFeatures.Objects;
+            VisualFeatures.Tags |
+            VisualFeatures.Objects;
 
             Response<ImageAnalysisResult> response =
                 await _imageAnalyzerClient.AnalyzeAsync(

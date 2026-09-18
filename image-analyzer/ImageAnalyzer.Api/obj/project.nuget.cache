@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "oJHw3R9RYtQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dakom\\Documents\\GitHub\\net25-analysis-ai-Blackprowhe\\image-analyzer\\ImageAnalyzer.Api\\ImageAnalyzer.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dakom\\.nuget\\packages\\azure.ai.vision.imageanalysis\\1.0.0\\azure.ai.vision.imageanalysis.1.0.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.10\\microsoft.aspnetcore.openapi.10.0.10.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\system.clientmodel\\1.2.1\\system.clientmodel.1.2.1.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\system.memory.data\\6.0.0\\system.memory.data.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "C:\\Users\\Dakom\\Documents\\GitHub\\net25-analysis-ai-Blackprowhe\\image-analyzer\\ImageAnalyzer.Api\\ImageAnalyzer.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Dakom\\Documents\\GitHub\\net25-analysis-ai-Blackprowhe\\image-analyzer\\ImageAnalyzer.Api\\ImageAnalyzer.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

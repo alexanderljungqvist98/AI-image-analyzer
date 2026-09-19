@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImageAnalyzer.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2b34d38efdc538b9f15f35e6e6b459ded643572")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f08019cc83c156482c653b5cd66b33a2df280b16")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImageAnalyzer.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImageAnalyzer.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

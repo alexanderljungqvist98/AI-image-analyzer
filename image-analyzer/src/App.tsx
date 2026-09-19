@@ -15,6 +15,7 @@ function App(){
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [analysisResult, setAnalysisResult] = useState<ImageAnalysisResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <div>
@@ -34,9 +35,11 @@ function App(){
 
      <button
     disabled={isLoading}
-    onClick={async () => {
-        setIsLoading(true);
+   onClick={async () => {
+    setIsLoading(true);
+    setError(null);
 
+    try {
         const formData = new FormData();
         formData.append("image", selectedFile);
 
@@ -47,9 +50,13 @@ function App(){
 
         const result = await response.json();
 
-        setIsLoading(false);
         setAnalysisResult(result);
-    }}
+    } catch (error) {
+        setError("Något gick fel vid analysen.");
+    } finally {
+        setIsLoading(false);
+    }
+}}
 >
     {isLoading ? "Analyserar..." : "Analysera bild"}
 </button>

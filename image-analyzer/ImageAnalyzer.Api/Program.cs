@@ -13,7 +13,18 @@ var key = builder.Configuration["AzureVision:Key"]
     
 
 builder.Services.AddOpenApi();
-builder.Services.AddOpenApi();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 
 builder.Services.AddSingleton(new ImageAnalysisClient(
     new Uri(endpoint),
@@ -22,6 +33,7 @@ builder.Services.AddSingleton(new ImageAnalysisClient(
     builder.Services.AddScoped<VisionService>();
 
 var app = builder.Build();
+app.UseCors("ReactApp");
 
 if (app.Environment.IsDevelopment())
 {

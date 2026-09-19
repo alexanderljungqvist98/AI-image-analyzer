@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
 
 function App(){
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   return (
     <div>
@@ -14,8 +15,23 @@ function App(){
     onChange={(e) => setSelectedFile(e.target.files?.[0] || null) }
 />
 
-{selectedFile && <p>{selectedFile.name}</p>}
+{selectedFile && (
+    <div>
+        <p>{selectedFile.name}</p>
 
+        <img src={URL.createObjectURL(selectedFile)} />
+
+        <button
+    onClick={() => {
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+
+    }}
+>
+    Analysera bild
+</button>
+    </div>
+)}
 
     </div>
 

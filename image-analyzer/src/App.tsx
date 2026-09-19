@@ -14,6 +14,7 @@ interface ImageAnalysisResult {
 function App(){
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [analysisResult, setAnalysisResult] = useState<ImageAnalysisResult | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div>
@@ -31,10 +32,13 @@ function App(){
 
         <img src={URL.createObjectURL(selectedFile)} />
 
-        <button
+     <button
+    disabled={isLoading}
     onClick={async () => {
+        setIsLoading(true);
+
         const formData = new FormData();
-        formData.append('image', selectedFile);
+        formData.append("image", selectedFile);
 
         const response = await fetch("http://localhost:5278/api/image/analyze", {
             method: "POST",
@@ -42,10 +46,12 @@ function App(){
         });
 
         const result = await response.json();
-       setAnalysisResult(result);
+
+        setIsLoading(false);
+        setAnalysisResult(result);
     }}
 >
-    Analysera bild
+    {isLoading ? "Analyserar..." : "Analysera bild"}
 </button>
     </div>
 )}
@@ -53,10 +59,13 @@ function App(){
 {analysisResult && (
     <div>
         {analysisResult.tags.values.map((tag) => (
-            <p>{tag.name} - {(tag.confidence * 100).toFixed(1)}%</p>
+            <p key={tag.name}>
+                {tag.name} - {(tag.confidence * 100).toFixed(1)}%
+            </p>
         ))}
     </div>
 )}
+
 
     </div>
 

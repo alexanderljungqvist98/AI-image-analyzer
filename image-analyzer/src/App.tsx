@@ -24,7 +24,11 @@ function App(){
       <input
     type="file"
     accept="image/*"
-    onChange={(e) => setSelectedFile(e.target.files?.[0] || null) }
+    onChange={(e) => {
+        setSelectedFile(e.target.files?.[0] || null );
+        setAnalysisResult(null);
+        setError(null);
+    }}
 />
 
 {selectedFile && (
@@ -48,14 +52,24 @@ function App(){
             body: formData
         });
 
-        const result = await response.json();
+        if (!response.ok) {
+            throw new Error("API anropet misslyckades.");
+        }
 
-        setAnalysisResult(result);
-    } catch (error) {
-        setError("Något gick fel vid analysen.");
-    } finally {
-        setIsLoading(false);
-    }
+     const result = await response.json();
+
+setAnalysisResult(result);
+} catch (error) {
+    console.error(error);
+
+    setError(
+        error instanceof Error
+            ? error.message
+            : "Något gick fel vid analysen."
+    );
+} finally {
+    setIsLoading(false);
+}
 }}
 >
     {isLoading ? "Analyserar..." : "Analysera bild"}
@@ -72,6 +86,8 @@ function App(){
         ))}
     </div>
 )}
+
+{error && <p>{error}</p>}
 
 
     </div>

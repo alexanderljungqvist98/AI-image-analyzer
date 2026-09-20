@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { analyzeImage } from "./services/imageApi";
 import type { ImageAnalysisResult } from "./types/ImageAnalysisResult";
+import "./App.css";
 
 
 
@@ -13,8 +14,8 @@ function App(){
   const [error, setError] = useState<string | null>(null);
 
   return (
-    <div>
-      <h1>Image Analyzer</h1>
+    <div className="app">
+      <h1>(っ◔◡◔)っ ♥ Image Analyzer ♥</h1>
 
       <input
     type="file"
@@ -28,9 +29,10 @@ function App(){
 
 {selectedFile && (
     <div>
-        <p>{selectedFile.name}</p>
+<p className="file-name">{selectedFile.name}</p>
 
-        <img src={URL.createObjectURL(selectedFile)} />
+        <img className="image-preview"
+         src={URL.createObjectURL(selectedFile)} />
 
      <button
     disabled={isLoading}
@@ -61,11 +63,20 @@ function App(){
 
 {analysisResult && (
     <div>
-        {analysisResult.tags.values.map((tag) => (
-            <p key={tag.name}>
-                {tag.name} - {(tag.confidence * 100).toFixed(1)}%
-            </p>
-        ))}
+        <h2>Analysresultat</h2>
+
+         <p className="result-description">
+            AI:n hittade följande egenskaper i bilden:
+        </p>
+
+        <div className="tag-list">
+            {analysisResult.tags.values.map((tag) => (
+                <div className="tag-result" key={tag.name}>
+                    <p>{tag.name}</p>
+                    <p>Confidence: {(tag.confidence * 100).toFixed(1)}%</p>
+                </div>
+            ))}
+        </div>
     </div>
 )}
 

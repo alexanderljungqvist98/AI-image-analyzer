@@ -1,13 +1,8 @@
 import { useState } from 'react';
+import { analyzeImage } from "./services/imageApi";
+import type { ImageAnalysisResult } from "./types/ImageAnalysisResult";
 
-interface ImageAnalysisResult {
-    tags: {
-        values: {
-            confidence: number;
-            name: string;
-        }[];
-    };
-}
+
 
 
 
@@ -44,21 +39,8 @@ function App(){
     setError(null);
 
     try {
-        const formData = new FormData();
-        formData.append("image", selectedFile);
-
-        const response = await fetch("http://localhost:5278/api/image/analyze", {
-            method: "POST",
-            body: formData
-        });
-
-        if (!response.ok) {
-            throw new Error("API anropet misslyckades.");
-        }
-
-     const result = await response.json();
-
-setAnalysisResult(result);
+       const result = await analyzeImage(selectedFile);
+       setAnalysisResult(result);
 } catch (error) {
     console.error(error);
 
